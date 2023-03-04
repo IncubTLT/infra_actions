@@ -38,11 +38,11 @@ jobs:
         # Запуск скрипта авторизации на Docker Hub
         uses: docker/login-action@v1 
         with:
-          username: <ваш_username_dockerhub> 
-          password: <ваш_пароль_dockerhub>
+          username: ${{ secrets.DOCKER_LOGIN }} 
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push to Docker Hub
         # Пуш образа в Docker Hub 
         uses: docker/build-push-action@v2 
         with:
           push: true
-          tags: ваш-логин-на-docker-hub/ваш-репозиторий-на-docker-hub:latest
+          tags: ${{ secrets.DOCKER_LOGIN }}/96f149ce3f1290c33fc1eae24a323d9237598f12b5ab2ee442fbc0594ce7e210:latest
